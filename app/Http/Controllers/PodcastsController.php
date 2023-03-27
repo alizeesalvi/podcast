@@ -2,9 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PodcastsController extends Controller
 {
     //
+
+    public function index()
+    {
+        $podcasts = User::all();
+        return view('index', ['podcasts' => $podcasts]);
+    }
+
 }

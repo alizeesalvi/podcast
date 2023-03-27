@@ -26,8 +26,8 @@
 <h1>Users :</h1>
 
 <ul>
-    @foreach($users as $user)
-        <li><a href="{{ route ('podcasts.show',$user)}}">{{$user->name}}</a></li>
+    @foreach($podcasts as $podcast)
+        <li>{{$podcast->name}}</li>
     @endforeach
 </ul>
 </body>
