@@ -21,6 +21,6 @@
         @endauth
     </div>
 @endif
-<h1>Salut</h1>
+<h1>bonjour</h1>
 </body>
 </html>
