@@ -21,6 +21,14 @@
         @endauth
     </div>
 @endif
-<h1>Salut</h1>
+
+
+<h1>Users :</h1>
+
+<ul>
+    @foreach($users as $user)
+        <li><a href="{{ route ('podcasts.show',$user)}}">{{$user->name}}</a></li>
+    @endforeach
+</ul>
 </body>
 </html>
