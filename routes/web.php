@@ -30,4 +30,5 @@ Route::middleware('auth')->group(function () {
 
 });
 
+Route::get('/{podcast}', [PodcastsController::class,'show'])->name('podcast.show');
 require __DIR__.'/auth.php';
