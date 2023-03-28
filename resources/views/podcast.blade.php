@@ -10,7 +10,7 @@
 <body>
 <h1>{{$podcast->title}}</h1>
 
-<p>Créer par : {{$user->name}}</p>
+
 <p>Description : {{$podcast -> file_name}}</p>
 
 

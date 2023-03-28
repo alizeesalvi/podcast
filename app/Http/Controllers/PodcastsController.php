@@ -16,9 +16,9 @@ class PodcastsController extends Controller
         return view('index', ['podcasts' => $podcasts]);
     }
 
-    public function show(User $user, Podcast $podcast)
+    public function show( Podcast $podcast)
     {
-        return view('podcast', ['user' => $user], ['podcast'=> $podcast]);
+        return view('podcast', ['podcast'=> $podcast]);
     }
 
 }

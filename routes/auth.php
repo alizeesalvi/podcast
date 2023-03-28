@@ -10,6 +10,9 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -56,4 +59,25 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+});
+
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('azure')->redirect();
+})->name('microsoft.login');
+
+Route::get('/auth/callback', function () {
+    $microsoftUser = Socialite::driver('azure')->user();
+
+    $user = User::updateOrCreate([
+        'email' => $microsoftUser->email,
+    ], [
+        'name' => $microsoftUser->name,
+        'email' => $microsoftUser->email,
+        'microsoft_token' => $microsoftUser->token,
+        'microsoft_refresh_token' => $microsoftUser->refreshToken,
+    ]);
+
+    Auth::login($user);
+
+    return redirect('/dashboard');
 });

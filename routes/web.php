@@ -1,8 +1,8 @@
 <?php
-
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PodcastsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +14,7 @@ use App\Http\Controllers\PodcastsController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 
 Route::get('/', [PodcastsController::class,'index'])->name('podcasts.index');
 
@@ -30,5 +31,6 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::get('/{podcast}', [PodcastsController::class,'show'])->name('podcast.show');
+Route::get('/podcast/{podcast}', [PodcastsController::class,'show'])->name('podcast.show');
+
 require __DIR__.'/auth.php';
