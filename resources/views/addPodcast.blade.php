@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,12 +8,13 @@
     <title>Document</title>
 </head>
 <body>
-<h1>{{$podcast->title}}</h1>
+<form method="POST" action="{{('podcasts.store')}}" enctype="multipart/form-data">
+    <label for="avatar">Choisi ton fichier:</label>
 
-<p>Crée par : {{$podcast->user->name}}</p>
-<p>Description : {{$podcast -> file_name}}</p>
+    <input type="file"
+           id="avatar" name="avatar"
+           accept="image/png, image/jpeg">
 
-
-
+    <button type="submit">Créer</button></form>
 </body>
 </html>

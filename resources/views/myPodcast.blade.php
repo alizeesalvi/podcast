@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,12 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-<h1>{{$podcast->title}}</h1>
+<h1>Mes Podcasts :</h1>
 
-<p>Crée par : {{$podcast->user->name}}</p>
-<p>Description : {{$podcast -> file_name}}</p>
-
-
-
+<ul>
+    @foreach($podcasts as $podcast)
+        <li>{{$podcast->title}}
+        <a href="{{route('podcast.edit', $podcast)}}">Modifier</a>
+        </li>
+    @endforeach
+</ul>
 </body>
 </html>
