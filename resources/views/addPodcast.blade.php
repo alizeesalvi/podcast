@@ -35,6 +35,5 @@ user: {{auth()->user()->id}}
     </label>
 
     <button type="submit">Ajouter</button>
-     
 </body>
 </html>

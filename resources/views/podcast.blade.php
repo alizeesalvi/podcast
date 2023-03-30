@@ -14,6 +14,11 @@
 <p>Crée par : {{$podcast->user->name}}</p>
 <p>Description : {{$podcast -> file_name}}</p>
 
+<img src="{{Storage::url($podcast->cover_file)}}">
+<audio controls>
+    <source src="{{Storage::url($podcast->audio_file)}}" type="{{Storage::mimeType($podcast->audio_file)}}">
+</audio>
+
 
 
 </body>

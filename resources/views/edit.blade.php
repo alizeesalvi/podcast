@@ -30,6 +30,10 @@
 
     <button type="submit">Modifier les informations</button>
 
+    <form action="{{route('podcast.destroy', $podcast)}}" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Supprimer</button></form>
 </form>
 </body>
 </html>

@@ -26,11 +26,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
     Route::get('/my-podcast', [PodcastsController::class,'myPodcast'])->name('podcast.myPodcast');
     Route::get('/my-podcast/{podcast}/edit', [PodcastsController::class,'edit'])->name('podcast.edit');
     Route::put('/my-podcast/{podcast}', [PodcastsController::class,'update'])->name('podcast.update');
     Route::get('/podcast/create', [PodcastsController::class,'create'])->name('podcast.create');
     Route::post('/podcast', [PodcastsController::class,'store'])->name('podcast.store');
+    Route::delete('/my-podcast/{podcast}', [PodcastsController::class,'destroy'])->name('podcast.destroy');
 
 
 });

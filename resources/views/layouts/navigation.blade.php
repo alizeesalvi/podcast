@@ -12,13 +12,18 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('podcasts.index')" :active="request()->routeIs('podcasts.index')">
+                        {{ __('Podcasts') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('podcast.myPodcast')" :active="request()->routeIs('podcast.myPodcast')">
-                        {{ __('myPodcast') }}
+                        {{ __('Mes Podcasts') }}
                     </x-nav-link>
                 </div>
             </div>
