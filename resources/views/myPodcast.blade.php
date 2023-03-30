@@ -10,6 +10,7 @@
 <body>
 <h1>Mes Podcasts :</h1>
 
+<a href="{{route('podcast.create')}}">Ajouter un podcast</a>
 <ul>
     @foreach($podcasts as $podcast)
         <li>{{$podcast->title}}
@@ -17,5 +18,7 @@
         </li>
     @endforeach
 </ul>
+
+
 </body>
 </html>

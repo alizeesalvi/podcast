@@ -23,7 +23,7 @@
 @endif
 
 
-<h1>Users :</h1>
+<h1>Derniers podcasts :</h1>
 
 <ul>
     @foreach($podcasts as $podcast)

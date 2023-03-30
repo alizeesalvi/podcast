@@ -24,10 +24,8 @@ class PodcastsController extends Controller
         return view('podcast', ['podcast'=> $podcast]);
     }
 
-
-    public function store(Request $request)
-    {
-        Storage::disk('local')->put('example.txt', 'Test');
+    public function create(Podcast $podcast){
+        return view('addPodcast',['podcast' => $podcast]);
     }
 
     public function myPodcast()
@@ -61,5 +59,28 @@ class PodcastsController extends Controller
         $podcast->save();
 
         return redirect()->route('podcast.myPodcast');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title'=>'required',
+            'file_name'=>'required',
+            'cover_file'=>'required',
+            'audio_file'=>'required',
+        ]);
+
+        $cover_file = Storage::disk('public')->put('podcast-img', $request -> cover_file);
+        $audio_file = Storage::disk('public')->put('podcast-audio', $request -> audio_file);
+
+        Podcast::create([
+            'title' => $request->input('title'),
+            'file_name' => $request->input('file_name'),
+            'user_id' => Auth::user()->id,
+            'cover_file' => $cover_file,
+            'audio_file' => $audio_file,
+        ]);
+
+        return redirect()->route('podcasts.index');
     }
 }

@@ -8,13 +8,33 @@
     <title>Document</title>
 </head>
 <body>
-<form method="POST" action="{{('podcasts.store')}}" enctype="multipart/form-data">
-    <label for="avatar">Choisi ton fichier:</label>
+user: {{auth()->user()->id}}
+<form method="POST" action="{{route('podcast.store', $podcast)}}" enctype="multipart/form-data">
+    @csrf
+    @method('POST')
+    <label>Titre
+        <input type="text" name="title">
+    </label>
+    @error('title')
+    <div class="alert alert-danger">{{$message}}</div>
+    @enderror
 
-    <input type="file"
-           id="avatar" name="avatar"
-           accept="image/png, image/jpeg">
+    <label>Description
+        <input type="text" name="file_name">
+    </label>
+    @error('file_name')
+    <div class="alert alert-danger">{{$message}}</div>
+    @enderror
 
-    <button type="submit">Créer</button></form>
+    <label>Pochette
+        <input type="file" name="cover_file">
+    </label>
+
+    <label>Audio
+        <input type="file" name="audio_file">
+    </label>
+
+    <button type="submit">Ajouter</button>
+     
 </body>
 </html>
