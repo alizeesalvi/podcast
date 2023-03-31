@@ -15,11 +15,11 @@
 <ul>
     @foreach($podcasts as $podcast)
         <li class="ml-3 mb-6">{{$podcast->title}}
-        <a class="ml-4 font-medium" href="{{route('podcast.edit', $podcast)}}">Modifier</a>
+        <a class="ml-4 font-semibold" href="{{route('podcast.edit', $podcast)}}">Modifier</a>
         </li>
     @endforeach
 </ul>
-<a class="ml-3 font-medium" href="{{route('podcast.create')}}">Ajouter un podcast</a>
+<a class="ml-3  font-semibold" href="{{route('podcast.create')}}">Ajouter un podcast</a>
 
 </body>
 </html>

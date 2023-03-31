@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="w-20">
                     <a href="{{ route('dashboard') }}">
-                        <img src="logo.png">
+                        <img src={{asset("logo.png")}}>
                     </a>
                 </div>
 

@@ -52,7 +52,6 @@
                     <source src="{{Storage::url($podcast->audio_file)}}" type="{{Storage::mimeType($podcast->audio_file)}}">
                 </audio>
             </div>
-
         </div>
 
 

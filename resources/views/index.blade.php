@@ -22,7 +22,7 @@
         </a>
     </div>
 
-    <div class="w-full mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+    <div class="w-full pt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
 
         @if (Route::has('login'))
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right">
@@ -40,7 +40,7 @@
 
 
         @foreach($podcasts as $podcast)
-            <div class="flex items-center">
+            <div class="flex items-center shadow">
 
                 <img class="w-48 mt-6" src="{{Storage::url($podcast->cover_file)}}">
                 <a class="py-4 text-xl ml-4" href="{{ route ('podcast.show',$podcast)}}">{{$podcast->title}}</a>

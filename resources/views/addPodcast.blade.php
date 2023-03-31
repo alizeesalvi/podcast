@@ -9,33 +9,39 @@
     <title>Document</title>
 </head>
 <body>
+<div class="ml-4">
 user: {{auth()->user()->id}}
 <form method="POST" action="{{route('podcast.store', $podcast)}}" enctype="multipart/form-data">
     @csrf
     @method('POST')
+    <div class="mb-6 mt-6">
     <label>Titre
         <input type="text" name="title">
     </label>
+    </div>
     @error('title')
     <div class="alert alert-danger">{{$message}}</div>
     @enderror
-
+<div class="mb-6">
     <label>Description
         <input type="text" name="file_name">
     </label>
+</div>
     @error('file_name')
     <div class="alert alert-danger">{{$message}}</div>
     @enderror
-
+<div class="mb-6">
     <label>Pochette
         <input type="file" name="cover_file">
     </label>
-
+</div>
+    <div class="mb-6">
     <label>Audio
         <input type="file" name="audio_file">
     </label>
-
-    <button type="submit">Ajouter</button>
+    </div>
+    <button class="font-semibold" type="submit">Ajouter</button>
+</div>
 </body>
 </html>
 </x-app-layout>
