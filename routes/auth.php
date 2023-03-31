@@ -73,8 +73,6 @@ Route::get('/auth/callback', function () {
     ], [
         'name' => $microsoftUser->name,
         'email' => $microsoftUser->email,
-        'microsoft_token' => $microsoftUser->token,
-        'microsoft_refresh_token' => $microsoftUser->refreshToken,
     ]);
 
     Auth::login($user);

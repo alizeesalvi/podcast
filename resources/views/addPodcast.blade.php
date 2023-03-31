@@ -1,3 +1,4 @@
+<x-app-layout>
 <!doctype html>
 <html lang="en">
 <head>
@@ -37,3 +38,4 @@ user: {{auth()->user()->id}}
     <button type="submit">Ajouter</button>
 </body>
 </html>
+</x-app-layout>

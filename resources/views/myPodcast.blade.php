@@ -1,3 +1,4 @@
+<x-app-layout>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,17 +9,18 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Mes Podcasts :</h1>
+<h1 class="font-semibold mt-6 ml-3 text-xl mb-4">Mes Podcasts :</h1>
 
-<a href="{{route('podcast.create')}}">Ajouter un podcast</a>
+
 <ul>
     @foreach($podcasts as $podcast)
-        <li>{{$podcast->title}}
-        <a href="{{route('podcast.edit', $podcast)}}">Modifier</a>
+        <li class="ml-3 mb-6">{{$podcast->title}}
+        <a class="ml-4 font-medium" href="{{route('podcast.edit', $podcast)}}">Modifier</a>
         </li>
     @endforeach
 </ul>
-
+<a class="ml-3 font-medium" href="{{route('podcast.create')}}">Ajouter un podcast</a>
 
 </body>
 </html>
+</x-app-layout>
