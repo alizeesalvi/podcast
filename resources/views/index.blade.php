@@ -36,7 +36,7 @@
         @endif
 
 
-        <h1 class="text-xl">Derniers podcasts :</h1>
+        <h1 class="text-xl">Les podcasts :</h1>
 
 
         @foreach($podcasts as $podcast)
